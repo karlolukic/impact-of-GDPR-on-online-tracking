@@ -1,12 +1,9 @@
-# Title: 
-# Functions 
-# Author: 
-# Karlo Lukic
-# Date: 
-# 12.11.2020
-# Description: 
-# This script contains collections of 
-# functions for the project: "The Impact of GDPR on the amount of online tracking"
+# ------------------------------------------------------------------------------
+# Title: Packages and Functions for the Reproducible Analysis of "The Impact of the General Data Protection Regulation (GDPR) on Online Tracking"
+# Authors: Klaus M. Miller, Karlo Lukic, Bernd Skiera
+# Script Author: Karlo Lukic
+# Date: January 10, 2025
+# ------------------------------------------------------------------------------
 
 # all packages used for the project ----
 library(data.table) # data manipulation
