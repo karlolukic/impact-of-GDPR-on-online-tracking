@@ -1,4 +1,4 @@
-# Doctoral Paper: The Impact of the General Data Protection Regulation (GDPR) on Online Tracking
+# The Impact of the General Data Protection Regulation (GDPR) on Online Tracking
 
 **Authors:** Klaus M. Miller, Karlo Lukic, Bernd Skiera  
 **Script Author:** Karlo Lukic  
