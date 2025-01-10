@@ -62,7 +62,7 @@ Some data that we use in the paper (e.g., SimilarWeb) is proprietary and we cann
 
 Use the prepared project on **Posit Cloud** to instantly replicate the analysis. Simply click on the link below—after signing up or logging in—to get started:
 
--   **Link to the Reproducible Analysis** on [Posit Cloud](https://posit.cloud/content/9522643).
+-   **Link to the Reproducible Analysis** on [Posit Cloud](https://posit.cloud/content/9522733).
 
 Once the project opens, follow steps 3-5 above.
 
