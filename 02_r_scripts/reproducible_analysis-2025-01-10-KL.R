@@ -32,7 +32,8 @@
 
 # load packages and functions --------------------------------------------------
 
-source("./02_r_scripts/packages_and_functions-2025-01-10-KL.R")
+library(here) # cross-platform file paths
+source(here("02_r_scripts", "packages_and_functions-2025-01-10-KL.R"))
 
 
 # set flextable package settings ----------------------------------------------
@@ -120,50 +121,53 @@ setFixest_notes(FALSE) # remove reporting of removing coefficients due to collin
 # read data sets ----------------------------------------------------------
 
 # main panel data set (= long)
-global_sites_trackers_panel_DT <- read_rds(file = "./01_data/global_sites_trackers_panel_balanced.rds")
+global_sites_trackers_panel_DT <- read_rds(file = here("01_data", "global_sites_trackers_panel_balanced.rds"))
 
 # main non-panel data set (= wide)
-global_sites_trackers_DT <- read_rds(file = "./01_data/global_sites_trackers_balanced.rds")
+global_sites_trackers_DT <- read_rds(file = here("01_data", "global_sites_trackers_balanced.rds"))
 
 # panel data set of EU/US users (= long)
-eu_us_sites_trackers_panel_DT <- read_rds(file = "01_data/eu_us_sites_trackers_panel.rds")
+eu_us_sites_trackers_panel_DT <- read_rds(file = here("01_data", "eu_us_sites_trackers_panel.rds"))
 
 # internet archive data of Ghostery users (used in web appendix)
-ia_tbl <- read_rds(file = "01_data/ia_tbl.rds")
+ia_tbl <- read_rds(file = here("01_data", "ia_tbl.rds"))
 
 # publicly available SimilarWeb data set (used in web appendix)
-sw_public_DT <- read_rds("01_data/merged_similar_web_data.rds")
+sw_public_DT <- read_rds(file = here("01_data", "merged_similar_web_data.rds"))
 
 # proprietary SimilarWeb data set (used in web appendix)
 # NOTE: Given that this data set is proprietary, we cannot provide the data set in the repository.
 # Instead, we use the filtered version of the data set to reproduce the results.
-sw_proprietary_filtered_DT <- read_rds(file = "01_data/sw_proprietary_filtered.rds")
+sw_proprietary_filtered_DT <- read_rds(file = here("01_data", "sw_proprietary_filtered.rds"))
 
 # data set for generalized synthetic control method (used in web appendix)
-synth_global_sites_trackers_DT <- read_rds("01_data/global_sites_trackers_panel.rds")
+synth_global_sites_trackers_DT <- read_rds(file = here("01_data", "global_sites_trackers_panel.rds"))
 
 # unbalanced panel data set (used in web appendix)
-unbalanced_global_sites_trackers_DT <- read_rds("./01_data/global_sites_trackers_panel_unbalanced.rds")
+unbalanced_global_sites_trackers_DT <- read_rds(file = here("01_data", "global_sites_trackers_panel_unbalanced.rds"))
 
 
 ################## REPRODUCE TABLES AND FIGURES IN MAIN TEXT ###################
 
 # Figure 1: Main Actors Involved in Online Tracking --------------
 
-pdf_render_page("03_results/figure_01.pdf", dpi = 300) %>% 
+pdf_render_page(here("03_results", "figure_01.pdf"), dpi = 300) %>% 
   magick::image_read() %>% 
   plot()
+
 
 # Figure 2: Tracker Providers Collecting Data Across Users and Publishers --------------
 
-pdf_render_page("03_results/figure_02.pdf", dpi = 300) %>% 
+pdf_render_page(here("03_results", "figure_02.pdf"), dpi = 300) %>% 
   magick::image_read() %>% 
   plot()
 
+
 # Table 1: Categorization of Online Trackers by Purpose and Necessity --------------
 
-t <- read_excel(here::here("01_data", "lookup_tables", 
-                           "tracker_category_description-2025-01-09.xlsx"), 
+t <- read_excel(here("01_data", 
+                     "lookup_tables", 
+                     "tracker_category_description-2025-01-09.xlsx"), 
                 col_names = T
 ) %>% 
   flextable() %>% 
@@ -186,13 +190,14 @@ t <- read_excel(here::here("01_data", "lookup_tables",
   flextable::keep_with_next()
 t
 
-t %>% flextable::save_as_docx(path = "03_results/table_01.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "table_01.docx"))
 
 
 # Table 2: Description of the Data Sets --------------
 
-t <- read_excel(here::here("01_data", "lookup_tables",
-                           "description_of_data_sources-2025-01-09.xlsx"), 
+t <- read_excel(here("01_data", 
+                     "lookup_tables",
+                     "description_of_data_sources-2025-01-09.xlsx"), 
            col_names = T
 ) %>% 
   flextable() %>% 
@@ -206,7 +211,7 @@ t <- read_excel(here::here("01_data", "lookup_tables",
   flextable::keep_with_next()
 t
 
-t %>% flextable::save_as_docx(path = "03_results/table_02.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "table_02.docx"))
 
 
 # referenced numbers in Table 2 for Evidon data set
@@ -367,7 +372,7 @@ t <- summarized_wide_DT %>%
   flextable::add_footer_lines("") # add empty line
 t
 
-t %>% flextable::save_as_docx(path = "03_results/table_03.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "table_03.docx"))
 
 
 # Figure 3: Distribution of the Average Number of Trackers per Publisher ------
@@ -440,7 +445,7 @@ ggplot(global_sites_trackers_panel_DT, aes(x = n_trackers)) +
     panel.grid.minor = element_blank()
   )
 
-ggsave("03_results/figure_03.pdf", width=8, height=6, font="Times", dpi=300)
+ggsave(here("03_results", "figure_03.pdf"), width = 8, height = 6, font = "Times", dpi = 300)
 
 
 # Table 4: Distribution of the Average Number of Trackers per Publisher By Categorizations of Trackers ---------
@@ -573,7 +578,8 @@ t <- tracker_summary_long_essential_non_essential %>%
   flextable::keep_with_next()
 t
 
-t %>% flextable::save_as_docx(path = "03_results/table_04a.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "table_04a.docx"))
+
   
 # Table 4b: Categorization of Trackers by Tracking Functionality
 tracker_summary_wide <- global_sites_trackers_panel_DT[, .(
@@ -632,7 +638,7 @@ t <- tracker_summary_long_pii_status %>%
   flextable::keep_with_next()
 t
 
-t %>% flextable::save_as_docx(path = "03_results/table_04b.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "table_04b.docx"))
 
 
 # Table 4c: Categorization of Trackers by Type of Publisher
@@ -684,7 +690,7 @@ t <- publisher_summary_long %>%
   flextable::keep_with_next()
 t
 
-t %>% flextable::save_as_docx(path = "03_results/table_04c.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "table_04c.docx"))
 
 # Table 4d: Categorization of Trackers by Size of Tracker Provider
 tracker_summary_wide <- global_sites_trackers_panel_DT[, .(
@@ -733,19 +739,20 @@ t <- tracker_summary_long_market_share %>%
   flextable::keep_with_next()
 t
 
-t %>% flextable::save_as_docx(path = "03_results/table_04d.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "table_04d.docx"))
 
 # Append four separate tables into a single table
 final_doc <- read_docx()
 final_doc <- final_doc %>%
-  body_add_docx(src = "03_results/table_04a.docx") %>%
+  body_add_docx(src = here("03_results", "table_04a.docx")) %>%
   body_add_par("") %>%
-  body_add_docx(src = "03_results/table_04b.docx") %>%
+  body_add_docx(src = here("03_results", "table_04b.docx")) %>%
   body_add_par("") %>%
-  body_add_docx(src = "03_results/table_04c.docx") %>%
+  body_add_docx(src = here("03_results", "table_04c.docx")) %>%
   body_add_par("") %>%
-  body_add_docx(src = "03_results/table_04d.docx")
-print(final_doc, target = "03_results/table_04.docx")
+  body_add_docx(src = here("03_results", "table_04d.docx"))
+
+print(final_doc, target = here("03_results", "table_04.docx"))
 
 # open preprocessed table 4 locally in Word?
 # temp_file <- tempfile(fileext = ".docx")
@@ -780,7 +787,7 @@ t <- total_trackers_long %>%
   flextable::colformat_double(j = 5, prefix = "(", suffix = "%)", digits = 2)
 t
 
-t %>% flextable::save_as_docx(path = "03_results/table_05a.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "table_05a.docx"))
 
 
 # Table 5b: Categorization of Trackers by Purpose and Necessity
@@ -869,7 +876,7 @@ t <- tracker_summary_long_essential %>%
   flextable::align(part = "footer", align = "justify")
 t
 
-t %>% flextable::save_as_docx(path = "03_results/table_05b.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "table_05b.docx"))
 
 
 # Table 5c: Categorization of Trackers by Tracking Functionality
@@ -914,7 +921,7 @@ t <- tracker_summary_long_functionality %>%
   flextable::align(part = "footer", align = "justify")
 t
 
-t %>% flextable::save_as_docx(path = "03_results/table_05c.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "table_05c.docx"))
 
 
 # Table 5d: Categorization of Trackers by Type of Publisher
@@ -990,7 +997,7 @@ t <- tracker_summary_long_publisher %>%
   # flextable::add_footer_lines("Notes: The Government publisher has been deliberately omitted from this analysis, given that only a single publisher of this type was represented in the control group of our sample.")
 t
 
-t %>% flextable::save_as_docx(path = "03_results/table_05d.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "table_05d.docx"))
 
 
 # Table 5e: Categorization of Trackers by Size of Tracker Provider
@@ -1027,7 +1034,8 @@ t <- tracker_summary_long_provider %>%
   flextable::align(part = "footer", align = "justify")
 t
 
-t %>% flextable::save_as_docx(path = "03_results/table_05e.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "table_05e.docx"))
+
 
 # Table 5f: Publisher Characteristics
 website_summary_grouped <- global_sites_trackers_panel_DT[, .(
@@ -1086,23 +1094,24 @@ t <- website_summary_long %>%
   flextable::add_footer_lines("Notes: This table shows the average number of trackers for the treatment and control groups across all months and types of tracker categorizations. Italicized labels represent grouped variables, where broad category descriptives (e.g., “Essential:”) are followed by descriptives for subcategories within that group (e.g., “Privacy-Friendly Analytics”). The table also shows the average share of traffic from (non)-EU users and the five most common TLDs for treatment and control groups. Percent differences are displayed as percentage points (pp) for shares of traffic from (non)-EU users. The Government publisher has been deliberately omitted from this analysis, given that only a single publisher of this type was present in the control group of our sample.")
 t
 
-t %>% flextable::save_as_docx(path = "03_results/table_05f.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "table_05f.docx"))
 
 # Append separate tables into a single table
 final_doc <- read_docx()
 final_doc <- final_doc %>%
-  body_add_docx(src = "03_results/table_05a.docx") %>%
+  body_add_docx(src = here("03_results", "table_05a.docx")) %>%
   body_add_par("") %>%
-  body_add_docx(src = "03_results/table_05b.docx") %>%
+  body_add_docx(src = here("03_results", "table_05b.docx")) %>%
   body_add_par("") %>%
-  body_add_docx(src = "03_results/table_05c.docx") %>%
+  body_add_docx(src = here("03_results", "table_05c.docx")) %>%
   body_add_par("") %>%
-  body_add_docx(src = "03_results/table_05d.docx") %>%
+  body_add_docx(src = here("03_results", "table_05d.docx")) %>%
   body_add_par("") %>%
-  body_add_docx(src = "03_results/table_05e.docx") %>%
+  body_add_docx(src = here("03_results", "table_05e.docx")) %>%
   body_add_par("") %>%
-  body_add_docx(src = "03_results/table_05f.docx")
-print(final_doc, target = "03_results/table_05.docx")
+  body_add_docx(src = here("03_results", "table_05f.docx"))
+
+print(final_doc, target = here("03_results", "table_05.docx"))
 
 # open preprocessed table locally in Word?
 # temp_file <- tempfile(fileext = ".docx")
@@ -1198,7 +1207,7 @@ ggplot(
         panel.grid.minor = element_blank()
         )
 
-ggsave("03_results/figure_04.pdf", width=8, height=6, font="Times", dpi=300)
+ggsave(here("03_results", "figure_04.pdf"), width = 8, height = 6, font = "Times", dpi = 300)
 
 
 # Figure 5: Development of the Average Monthly Number of Trackers in the Treatment and Control Groups ----------
@@ -1227,7 +1236,7 @@ ggplot(data_summary, aes(x = ymd, y = mean_n_trackers, linetype = factor(is_trea
         panel.grid.minor = element_blank()
         )
 
-ggsave("03_results/figure_05.pdf", width=8, height=6, font="Times", dpi=300)
+ggsave(here("03_results", "figure_05.pdf"), width = 8, height = 6, font = "Times", dpi = 300)
 
 
 # Table 6: Cross-Table for the Average (Monthly) Number of Trackers in the Treatment and Control Groups Before and After the GDPR’s Enactment --------
@@ -1244,7 +1253,7 @@ t
 
 t %>% 
   flextable::keep_with_next() %>% 
-  flextable::save_as_docx(path = "03_results/table_06.docx")
+  flextable::save_as_docx(path = here("03_results", "table_06.docx"))
 
 
 # Table 7: Result of Difference-in-Differences (DiD) Analysis for the Number of Trackers -------------
@@ -1297,7 +1306,7 @@ t <- etable(m2,
   flextable::add_footer_lines("") # add empty line
 t
 
-t %>% flextable::save_as_docx(path = "03_results/table_07.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "table_07.docx"))
 
 
 # Figure 6: Distribution of the GDPR’s Impact Across Categorizations of Trackers ---------------
@@ -1488,14 +1497,14 @@ combined_plot <- combined_plot +
   )
 combined_plot
 
-ggsave("03_results/figure_06.pdf", combined_plot, width = 8, height = 12, dpi = 300)
+ggsave(here("03_results", "figure_06.pdf"), combined_plot, width = 8, height = 12, dpi = 300)
 
 
 # Table 8: Summary of Robustness Tests ---------------
 
-t <- read_excel(here::here("01_data", 
-                           "lookup_tables", 
-                           "summary_of_robustness_tests-2025-01-09.xlsx"), 
+t <- read_excel(here("01_data", 
+                     "lookup_tables", 
+                     "summary_of_robustness_tests-2025-01-09.xlsx"), 
            col_names = T
 ) %>% 
   flextable() %>% 
@@ -1508,14 +1517,14 @@ t <- read_excel(here::here("01_data",
   flextable::keep_with_next()
 t
 
-t %>% flextable::save_as_docx(path = "03_results/table_08.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "table_08.docx"))
 
 
 # Table 9: Summary of Empirical Findings on Description of Online Trackers and Their Conclusions --------------
 
-t <- read_excel(here::here("01_data", 
-                           "lookup_tables", 
-                           "summary_of_empirical_findings_on_description_of_online_trackers-2025-01-09.xlsx"), 
+t <- read_excel(here("01_data",
+                     "lookup_tables", 
+                     "summary_of_empirical_findings_on_description_of_online_trackers-2025-01-09.xlsx"), 
                 col_names = T
 ) %>% 
   flextable() %>% 
@@ -1530,14 +1539,14 @@ t <- read_excel(here::here("01_data",
   flextable::keep_with_next()
 t
 
-t %>% flextable::save_as_docx(path = "03_results/table_09.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "table_09.docx"))
 
 
 # Table 10: Summary of Empirical Findings on Description of Online Trackers and Their Conclusions --------------
 
-t <- read_excel(here::here("01_data", 
-                           "lookup_tables", 
-                           "summary_of_empirical_findings_on_impact_of_GDPR-2025-01-09.xlsx"), 
+t <- read_excel(here("01_data",
+                     "lookup_tables", 
+                     "summary_of_empirical_findings_on_impact_of_GDPR-2025-01-09.xlsx"), 
                 col_names = T
 ) %>% 
   flextable() %>% 
@@ -1554,7 +1563,7 @@ t <- read_excel(here::here("01_data",
   flextable::keep_with_next()
 t
 
-t %>% flextable::save_as_docx(path = "03_results/table_10.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "table_10.docx"))
 
 
 ################# REPRODUCE TABLES AND FIGURES IN WEB APPENDICES ###############
@@ -1638,7 +1647,7 @@ t <- summarized_wide_DT %>%
   flextable::add_footer_lines("") # add empty line
 t
 
-t %>% flextable::save_as_docx(path = "03_results/web_appendix/table_11.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "web_appendix", "table_11.docx"))
 
 
 # Figure 7: Development of the Average Monthly Number of Trackers with Treatment Assignment Based on Server Location --------------
@@ -1667,7 +1676,7 @@ ggplot(data_summary, aes(x = ymd, y = mean_n_trackers, linetype = factor(is_trea
         panel.grid.minor = element_blank()
   )
 
-ggsave("03_results/web_appendix/figure_07.pdf", width=8, height=6, font="Times", dpi=300)
+ggsave(here("03_results", "web_appendix", "figure_07.pdf"), width = 8, height = 6, font = "Times", dpi = 300)
 
 
 # Table 12: Result of Difference-in-Differences Analysis for the Sample with a Server Location Treatment Assignment ------------------
@@ -1716,7 +1725,7 @@ t <- etable(m_server,
   flextable::add_footer_lines("") # add empty line
 t
 
-t %>% flextable::save_as_docx(path = "03_results/web_appendix/table_12.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "web_appendix", "table_12.docx"))
 
 
 # Table 13: Distribution of Observations (Monthly Publishers) Across Publisher Designation and User Location (EU vs. US) --------
@@ -1825,7 +1834,7 @@ t <- summarized_wide_DT %>%
   flextable::add_footer_lines("") # add empty line
 t
 
-t %>% flextable::save_as_docx(path = "03_results/web_appendix/table_13.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "web_appendix", "table_13.docx"))
 
 
 # Figure 8: Development of the Average Monthly Number of Trackers in the Secondary Sample with Treatment Assignment Based on Publisher Designation and User Location (EU vs. US) ----------
@@ -1854,7 +1863,7 @@ ggplot(data_summary, aes(x = ymd, y = mean_n_trackers, linetype = factor(is_trea
         panel.grid.minor = element_blank()
         )
 
-ggsave("03_results/web_appendix/figure_08.pdf", width=8, height=6, font="Times", dpi=300)
+ggsave(here("03_results", "web_appendix", "figure_08.pdf"), width = 8, height = 6, font = "Times", dpi = 300)
 
 
 # Table 14: Result of Difference-in-Differences Analysis for the Number of Trackers of a Secondary Sample with Treatment Assignment Based on Publisher Designation and User Location (EU vs. US) ----------
@@ -1941,7 +1950,7 @@ t <- etable(m4, m3,
   flextable::add_footer_lines("") # add empty line
 t
 
-t %>% flextable::save_as_docx(path = "03_results/web_appendix/table_14.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "web_appendix", "table_14.docx"))
 
 
 # Figure 9: Development of the Monthly Difference-in-Differences Coefficients for the Number of Trackers -------------------------------
@@ -1986,7 +1995,7 @@ ggplot(interaction_did_DT, aes(x = as.Date(ymd),
     panel.grid.minor = element_blank()
     )
 
-ggsave("03_results/web_appendix/figure_09.pdf", width=8, height=6, font="Times", dpi=300)
+ggsave(here("03_results", "web_appendix", "figure_09.pdf"), width = 8, height = 6, font = "Times", dpi = 300)
 
 
 # Table 15: Result of Placebo Difference-in-Differences Analysis for the Number of Trackers ----
@@ -2144,7 +2153,7 @@ t <- etable(
   flextable::fontsize(size = 9, part = "all") # fit to landscape Word page
 t
 
-t %>% flextable::save_as_docx(path = "03_results/web_appendix/table_15.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "web_appendix", "table_15.docx"))
 
 
 # Table 16: Result of Difference-in-Differences Analysis for the Number of Trackers Between Different Definitions of the Treatment and Control Groups --------------
@@ -2234,7 +2243,7 @@ t <- etable(rc_1_did_estimate_n_trackers,
   flextable::add_footer_lines("") # add empty line
 t
 
-t %>% flextable::save_as_docx(path = "03_results/web_appendix/table_16.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "web_appendix", "table_16.docx"))
 
 
 # Figure 10: Development of the Number of Ghostery Extension Users for Chrome and Firefox Browsers per Wayback Machine Capture Date -----------------
@@ -2330,7 +2339,7 @@ figure <- annotate_figure(figure,
                                              size = 11))
 figure
 
-ggsave("03_results/web_appendix/figure_10.pdf", width=6, height=6, font="Times", dpi=300)
+ggsave(here("03_results", "web_appendix", "figure_10.pdf"), width = 6, height = 6, font = "Times", dpi = 300)
 
 
 # Table 17: Result of Regressions for the Number of Ghostery Extension Users ----------------
@@ -2390,14 +2399,14 @@ t <- etable("(1)" = lm_1, "(2)" = lm_2, "(3)" = lm_3, "(4)" = lm_4,
   flextable::add_footer_lines("") # add empty line
 t
 
-t %>% flextable::save_as_docx(path = "03_results/web_appendix/table_17.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "web_appendix", "table_17.docx"))
 
 
 # Table 18: Steps Taken to Prepare the Sample of 294 Publishers -----------------
 
-t <- read_excel(here::here("01_data", 
-                           "lookup_tables",
-                           "description_of_sample_preparation-2025-01-09.xlsx"), 
+t <- read_excel(here("01_data",
+                     "lookup_tables",
+                     "description_of_sample_preparation-2025-01-09.xlsx"), 
                 col_names = T
 ) %>% 
   mutate("Percent Change" = (`Percent Change` * 100)) %>% 
@@ -2411,14 +2420,14 @@ t <- read_excel(here::here("01_data",
   flextable::keep_with_next()
 t
 
-t %>% flextable::save_as_docx(path = "03_results/web_appendix/table_18.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "web_appendix", "table_18.docx"))
 
 
 # Table 19: Description of Publisher Industries and Types  --------------------------
 
-t <- read_excel(here::here("01_data", 
-                           "lookup_tables", 
-                           "site_category_description-2025-01-09.xlsx"), 
+t <- read_excel(here("01_data",
+                     "lookup_tables", 
+                     "site_category_description-2025-01-09.xlsx"), 
                 col_names = T
 ) %>% 
   flextable() %>% 
@@ -2435,7 +2444,7 @@ t <- read_excel(here::here("01_data",
   flextable::add_footer_lines("Notes: We adapt this table from Karaj et al. (2018)") # add empty line
 t
 
-t %>% flextable::save_as_docx(path = "03_results/web_appendix/table_19.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "web_appendix", "table_19.docx"))
 
 
 # Table 20: Result of Difference-in-Differences Analysis without March, April, May and June 2018 -------------------------
@@ -2487,7 +2496,7 @@ t <- etable(est_obedience,
   flextable::add_footer_lines("") # add empty line
 t
 
-t %>% flextable::save_as_docx(path = "03_results/web_appendix/table_20.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "web_appendix", "table_20.docx"))
 
 
 # Figure 11: Development of the Log of Average Monthly Number of Trackers in the Treatment and Control Groups ----------
@@ -2515,7 +2524,7 @@ ggplot(data_summary, aes(x = ymd, y = log(mean_n_trackers), linetype = factor(is
         panel.grid.minor = element_blank()
   )
 
-ggsave("03_results/web_appendix/figure_11.pdf", width=8, height=6, font="Times", dpi=300)
+ggsave(here("03_results", "web_appendix", "figure_11.pdf"), width = 8, height = 6, font = "Times", dpi = 300)
 
 
 # Table 21: Result of Difference-in-Differences Analysis with Log Transformation of the Dependent Variable  ----------
@@ -2568,7 +2577,7 @@ t <- etable(mlog,
   flextable::add_footer_lines("") # add empty line
 t
 
-t %>% flextable::save_as_docx(path = "03_results/web_appendix/table_21.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "web_appendix", "table_21.docx"))
 
 
 # Figure 12: Estimated Fixed Effects Coefficients for Publisher ID and Month ID ------
@@ -2637,7 +2646,7 @@ figure <- annotate_figure(figure,
                                            size = 11, hjust = 0.4))
 figure
 
-ggsave("03_results/web_appendix/figure_12.pdf", width=6, height=6, font="Times", dpi=300)
+ggsave(here("03_results", "web_appendix", "figure_12.pdf"), width = 6, height = 6, font = "Times", dpi = 300)
 
 
 # Table 22: Result of Difference-in-Differences Analysis for the Number of Trackers with a Linear Time Trend -----
@@ -2691,7 +2700,7 @@ t <- etable(m2_with_linear_trend,
   flextable::add_footer_lines("") # add empty line
 t
 
-t %>% flextable::save_as_docx(path = "03_results/web_appendix/table_22.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "web_appendix", "table_22.docx"))
 
 
 # Table 23: Detailed Estimated Fixed Effects Coefficients for Publisher ID and Month ID ----
@@ -2726,7 +2735,7 @@ t <- fe_combined %>%
   flextable::autofit()
 t
 
-t %>% flextable::save_as_docx(path = "03_results/web_appendix/table_23.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "web_appendix", "table_23.docx"))
 
 
 # Table 24: Summary of EU Traffic Share Differences Between Public and Proprietary SimilarWeb Data Sets ------------------------
@@ -2790,7 +2799,7 @@ t <- flextable(overall_summary_df) %>%
   flextable::keep_with_next()
 t
 
-t %>% flextable::save_as_docx(path = "03_results/web_appendix/table_24.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "web_appendix", "table_24.docx"))
 
 
 # Figure 13: Development of the Average Monthly Number of Trackers in the Observed (Treatment) and Predicted Counterfactual (Control) Groups -------------
@@ -2865,7 +2874,8 @@ ggplot(plot_data_long, aes(x = ymd, y = mean_n_trackers, linetype = Group)) +
         panel.grid.major = element_line(colour = "lightgray", linewidth = 0.1),
         panel.grid.minor = element_blank())
 
-ggsave("03_results/web_appendix/figure_13.pdf", width=8, height=6, font="Times", dpi=300)
+ggsave(here("03_results", "web_appendix", "figure_13.pdf"), width = 8, height = 6, font = "Times", dpi = 300)
+
 
 # Table 25: Result of Generalized Synthetic Control Method Analysis for the Number of Trackers -------
 
@@ -2895,7 +2905,6 @@ combined_results$Estimate <- paste0(combined_results$Estimate, combined_results$
 
 combined_results <- combined_results %>% 
   select(Model, Estimate, CI)
-combined_results
 
 lookup_table <- data.frame(
   period = c(-11:20),
@@ -2964,7 +2973,7 @@ t <- flextable(combined_results) %>%
   flextable::italic(i = c(2))
 t
 
-t %>% flextable::save_as_docx(path = "03_results/web_appendix/table_25.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "web_appendix", "table_25.docx"))
 
 
 # Figure 14: Development of the Monthly Average Treatment Effect (ATT) Coefficients for the Number of Trackers  -------
@@ -2998,7 +3007,7 @@ ggplot(att_data, aes(x = time, y = ATT)) +
         panel.grid.major = element_line(colour = "lightgray", linewidth = 0.1),
         panel.grid.minor = element_blank())  # Adjust theme for caption and grid
 
-ggsave("03_results/web_appendix/figure_14.pdf", width=8, height=6, font="Times", dpi=300)
+ggsave(here("03_results", "web_appendix", "figure_14.pdf"), width = 8, height = 6, font = "Times", dpi = 300)
 
 
 # Figure 15: Development of the Average Monthly Number of Trackers in the Treatment and Control Groups of the Unbalanced Panel ------------------------
@@ -3068,7 +3077,7 @@ combined_fig <- annotate_figure(combined_fig,
 )
 combined_fig
 
-ggsave("03_results/web_appendix/figure_15.pdf", combined_fig, width=9, height=9, font="Times", dpi=300)
+ggsave(here("03_results", "web_appendix", "figure_15.pdf"), combined_fig, width = 9, height = 9, font = "Times", dpi = 300)
 
 
 # Table 26: Result of Difference-in-Differences Analysis for the Number of Trackers in the Unbalanced Panel --------------
@@ -3127,4 +3136,4 @@ t <- etable(m4_unbalanced_TLD,
   flextable::add_footer_lines("") # add empty line
 t
 
-t %>% flextable::save_as_docx(path = "03_results/web_appendix/table_26.docx")
+t %>% flextable::save_as_docx(path = here("03_results", "web_appendix", "table_26.docx"))
