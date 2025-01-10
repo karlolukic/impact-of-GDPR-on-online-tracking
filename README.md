@@ -66,7 +66,7 @@ Use the prepared project on **Posit Cloud** to instantly replicate the analysis.
 
 Once the project opens, follow steps 3-5 above.
 
-*Note*: Posit Cloud allows you to skip steps 1-2.
+*Note*: Posit Cloud allows you to skip step 2.
 
 ## Instructions to Replicate Analysis on Local Machine Using RStudio Desktop
 
