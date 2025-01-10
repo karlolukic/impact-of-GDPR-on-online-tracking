@@ -12,8 +12,8 @@
 # presented in the paper. It covers Difference-in-Differences (DiD) and Synthetic Control analyses.
 
 # Repository:
-# GitHub: https://github.com/<your-github-username>/<repository-name>
-# RStudio Cloud: https://rstudio.cloud/project/<project-id>
+# GitHub: https://github.com/karlolukic/impact-of-GDPR-on-online-tracking-2025-01-10
+# Posit (RStudio Cloud): https://rstudio.cloud/project/<project-id>
 
 # Data Sources:
 # - Public Data: The WhoTracks.me data used in this analysis is publicly available at:
@@ -25,7 +25,7 @@
 # Please cite our paper if you use this script in your work.
 
 # Dependencies:
-# See the script:./02_r_scripts/00_functions/packages_and_functions-2025-01-10-KL.R
+# See the script:./02_r_scripts/packages_and_functions-2025-01-10-KL.R
 
 # Acknowledgments:
 # The authors thank the WhoTracks.me team for providing the data for this research project.
