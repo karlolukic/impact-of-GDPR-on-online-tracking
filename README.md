@@ -90,7 +90,7 @@ Once the project opens, follow steps 3-5 above.
     renv::restore()
     ```
 
-3.  This will install all necessary packages with their exact versions as used in the original analysis.
+3.  This command will install all necessary packages with their exact versions as used in the original analysis.
 
 ### Creating a New Snapshot
 
@@ -100,7 +100,7 @@ If you add or update packages, you can create a new snapshot of the environment 
 renv::snapshot()
 ```
 
-This will update the `renv.lock` file with the current package versions.
+This command will update the `renv.lock` file with the current package versions.
 
 ## Acknowledgments
 
@@ -108,10 +108,10 @@ We thank the **WhoTracks.me** team for providing the data used in this research.
 
 This project has received funding from the **European Research Council (ERC)** under the European Union’s Horizon 2020 research and innovation program (grant agreement No. 833714).
 
+![](erc-logo.png){width="376"}
+
+## Attribution
+
 If you use this script in your work, please cite the original paper:
 
-**Miller, K.M., Lukic, K., & Skiera, B. (2025). The Impact of the General Data Protection Regulation (GDPR) on Online Tracking. IJRM.**
-
-## 
-
-![](erc-logo.png)
+**Miller, K.M., Lukic, K., & Skiera, B. (2025). The Impact of the General Data Protection Regulation (GDPR) on Online Tracking. International Journal of Research in Marketing (forthcoming).**
