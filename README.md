@@ -114,4 +114,4 @@ If you use this script in your work, please cite the original paper:
 
 **Miller, K.M., Lukic, K., & Skiera, B. (2025). The Impact of the General Data Protection Regulation (GDPR) on Online Tracking. International Journal of Research in Marketing (forthcoming).**
 
-![](erc-logo.png)
+<img src="erc-logo.png" alt="ERC Logo" width="460"><img src="logo-hi-paris-retina.png" alt="HI Paris Logo" width="300">
