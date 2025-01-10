@@ -11,19 +11,6 @@
 # The code processes the underlying data, applies econometric models, and outputs the final results as 
 # presented in the paper. It covers Difference-in-Differences (DiD) and Synthetic Control analyses.
 
-# Repository:
-# GitHub: https://github.com/karlolukic/impact-of-GDPR-on-online-tracking-2025-01-10
-# TODO: Posit (RStudio Cloud): https://rstudio.cloud/project/<project-id>
-
-# Data Sets:
-# - Public Data: The WhoTracks.me data used in this analysis is publicly available at:
-#   https://github.com/whotracksme/whotracks.me
-# - Proprietary Data: Filtered version of proprietary SimilarWeb data set is used to ensure reproducibility.
-
-# Licensing:
-# This script is released under the MIT License, allowing open access and modification.
-# Please cite our paper if you use this script in your work.
-
 # Dependencies:
 # See the script:./02_r_scripts/packages_and_functions-2025-01-10-KL.R
 
@@ -32,10 +19,13 @@
 # This script uses data from public and proprietary sources as described in the paper. 
 # Proprietary data is not included in this script.
 
+# Licensing:
+# This script is released under the MIT License, allowing open access and modification.
+# Please cite our paper if you use this script in your work.
+
 # Contact:
 # Karlo Lukic (karlo.lukic@protonmail.com)
 # ------------------------------------------------------------------------------
-
 
 
 #################################### SETUP #####################################
