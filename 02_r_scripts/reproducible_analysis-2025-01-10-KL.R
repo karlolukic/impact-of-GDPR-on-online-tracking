@@ -6,25 +6,23 @@
 # ------------------------------------------------------------------------------
 
 # Description:
-# This R script reproduces all tables and figures included in the main text and web appendix of the paper
+# This R script reproduces tables and figures included in the main text and web appendix of the paper
 # titled "The Impact of the General Data Protection Regulation (GDPR) on Online Tracking."
 # The code processes the underlying data, applies econometric models, and outputs the final results as 
-# presented in the paper. It covers Difference-in-Differences (DiD) and Synthetic Control analyses.
+# presented in the paper.
 
 # Dependencies:
 # See the script:./02_r_scripts/packages_and_functions-2025-01-10-KL.R
 
 # Acknowledgments:
 # The authors thank the WhoTracks.me team for providing the data for this research project.
-# This script uses data from public and proprietary sources as described in the paper. 
-# Proprietary data is not included in this script.
 
-# Licensing:
-# This script is released under the MIT License, allowing open access and modification.
+# Attribution:
 # Please cite our paper if you use this script in your work.
 
 # Contact:
 # Karlo Lukic (karlo.lukic@protonmail.com)
+
 # ------------------------------------------------------------------------------
 
 
@@ -32,7 +30,7 @@
 
 # load packages and functions --------------------------------------------------
 
-# renv::restore() # comment in if you want to restore the environment
+renv::restore() # comment in/out if you want to restore the environment
 
 library(here) # cross-platform file paths
 source(here("02_r_scripts", "packages_and_functions-2025-01-10-KL.R"))
@@ -122,13 +120,13 @@ setFixest_notes(FALSE) # remove reporting of removing coefficients due to collin
 
 # read data sets ----------------------------------------------------------
 
-# main panel data set (= long)
+# panel data set of global users (used in main text)
 global_sites_trackers_panel_DT <- read_rds(file = here("01_data", "global_sites_trackers_panel_balanced.rds"))
 
-# main non-panel data set (= wide)
+# non-panel data set of global users (used in main text)
 global_sites_trackers_DT <- read_rds(file = here("01_data", "global_sites_trackers_balanced.rds"))
 
-# panel data set of EU/US users (= long)
+# panel data set of EU/US users (used in web appendix)
 eu_us_sites_trackers_panel_DT <- read_rds(file = here("01_data", "eu_us_sites_trackers_panel.rds"))
 
 # internet archive data of Ghostery users (used in web appendix)
@@ -138,14 +136,14 @@ ia_tbl <- read_rds(file = here("01_data", "ia_tbl.rds"))
 sw_public_DT <- read_rds(file = here("01_data", "merged_similar_web_data.rds"))
 
 # proprietary SimilarWeb data set (used in web appendix)
-# NOTE: Given that this data set is proprietary, we cannot provide the data set in the repository.
+# NOTE: Given that this data set is proprietary, we cannot provide the raw data.
 # Instead, we use the subset of the raw data set to reproduce the results.
 sw_proprietary_filtered_DT <- read_rds(file = here("01_data", "sw_proprietary_filtered.rds"))
 
 # data set for generalized synthetic control method (used in web appendix)
 synth_global_sites_trackers_DT <- read_rds(file = here("01_data", "global_sites_trackers_panel.rds"))
 
-# unbalanced panel data set (used in web appendix)
+# unbalanced panel data set of global users (used in web appendix)
 unbalanced_global_sites_trackers_DT <- read_rds(file = here("01_data", "global_sites_trackers_panel_unbalanced.rds"))
 
 
