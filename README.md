@@ -106,7 +106,7 @@ This command will update the `renv.lock` file with the current package version
 
 We thank the **WhoTracks.me** team for providing the data used in this research.
 
-This project has received funding from the **European Research Council (ERC)** under the European Union’s Horizon 2020 research and innovation program (grant agreement No. 833714).
+This project has received funding from the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation program (grant agreement No. 833714). Miller gratefully acknowledges support from the Hi! PARIS Center on Data Analytics and Artificial Intelligence for Science, Business, and Society.
 
 ## Attribution
 
