@@ -19,7 +19,7 @@ Note: The analysis was conducted using the R programming language.
 
 2.  **Restore the environment:** Begin by running `renv::restore()` to restore all packages and their versions to ensure a reproducible data analysis. When prompted, confirm by typing `Y`. Restoring packages can take a few minutes. If you have already completed this step, you can skip it.
 
-3.  **Locate the R script:** The key script for the analysis is located at `02_r_scripts/reproducible_analysis.R`. Open this script to run the data analysis.
+3.  **Locate the R script:** The key script for the analysis is located at `02_r_scripts/reproducible_analysis.R`. Open this self-contained script to run the data analysis.
 
 4.  **Run the script:** For instance, in RStudio, run the script line by line `Run Selected Line(s)` to replicate the exact data analysis process conducted for the paper.
 
