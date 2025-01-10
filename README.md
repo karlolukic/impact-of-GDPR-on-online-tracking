@@ -47,7 +47,7 @@ Once the project opens, follow the instructions in the `README.md` file inside t
 
 2.  Open the R project in **RStudio Desktop**.
 
-3.  Install the required packages if you haven't already:
+3.  Install the required packages if you have not already:
 
     ``` r
     install.packages(c("dplyr", "ggplot2", "fixest", "flextable", "magick", "here", "readr", "data.table", "tidyr", "scales"))
@@ -57,10 +57,40 @@ Once the project opens, follow the instructions in the `README.md` file inside t
 
 ------------------------------------------------------------------------
 
+## Reproducibility with `renv`
+
+To ensure reproducibility, we use the **`renv` package** to snapshot the project environment and manage package versions. This allows anyone to recreate the exact environment used for the analysis.
+
+### How to Use `renv`
+
+1.  After cloning the repository, open the project in **RStudio Desktop**.
+
+2.  Run the following command to restore the package environment:
+
+    ```         
+    renv::restore()
+    ```
+
+3.  This will install all necessary packages with their exact versions as used in the original analysis.
+
+### Creating a New Snapshot
+
+If you add or update packages, you can create a new snapshot of the environment by running:
+
+```         
+renv::snapshot()
+```
+
+This will update the `renv.lock` file with the current package versions.
+
+------------------------------------------------------------------------
+
 ## Acknowledgments
 
 We thank the **WhoTracks.me** team for providing the data used in this research.\
 This project has received funding from the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation program (grant agreement No. 833714).
+
+------------------------------------------------------------------------
 
 ## Licensing
 
