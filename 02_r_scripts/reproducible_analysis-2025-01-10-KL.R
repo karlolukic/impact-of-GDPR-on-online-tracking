@@ -13,12 +13,12 @@
 
 # Repository:
 # GitHub: https://github.com/karlolukic/impact-of-GDPR-on-online-tracking-2025-01-10
-# Posit (RStudio Cloud): https://rstudio.cloud/project/<project-id>
+# TODO: Posit (RStudio Cloud): https://rstudio.cloud/project/<project-id>
 
-# Data Sources:
+# Data Sets:
 # - Public Data: The WhoTracks.me data used in this analysis is publicly available at:
 #   https://github.com/whotracksme/whotracks.me
-# - Proprietary Data: Filtered version of proprietary SimilarWeb dataset is used to ensure reproducibility.
+# - Proprietary Data: Filtered version of proprietary SimilarWeb data set is used to ensure reproducibility.
 
 # Licensing:
 # This script is released under the MIT License, allowing open access and modification.

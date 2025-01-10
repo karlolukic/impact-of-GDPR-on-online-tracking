@@ -5,7 +5,7 @@
 
 ## Description of Repository
 
-This repository contains the reproducible code to generate all tables and figures presented in the paper:
+This repository contains the reproducible code to generate tables and figures presented in the paper:
 
 **"The Impact of the General Data Protection Regulation (GDPR) on Online Tracking"**
 
@@ -23,13 +23,7 @@ Note: The analysis was conducted using the R programming language.
 
 4.  **Run the script:** For instance, in RStudio, run the script line by line `Run Selected Line(s)` to replicate the exact data analysis process conducted for the paper.
 
-------------------------------------------------------------------------
-
-## Outcome
-
-Upon complete execution of the script, you will find the results saved in the `03_results` directory. This folder will include tables and figures presented in the paper.
-
-There is significant value in successfully replicating research and understanding the underlying processes that lead to the results. We appreciate your interest in this work and encourage you to reach out with any questions.
+5.  **Locate the results**: The folder `03_results` will initially be empty. Upon complete execution of the script, the folder will populate with the results.
 
 ------------------------------------------------------------------------
 
@@ -47,27 +41,23 @@ Some data sets used in the paper (e.g., SimilarWeb) are proprietary and cannot b
 
 ## How to Instantly Replicate Analysis Using Posit Cloud
 
-Use the prepared project on **Posit Cloud** to instantly replicate the analysis. Simply click on the link below to get started:
+Use the prepared project on **Posit Cloud** to instantly replicate the analysis. Simply click on the link below to get started after the Sign Up / Log In on Posit Cloud:
 
--   **GDPR Paper Analysis** on [Posit Cloud](https://posit.cloud/project/%3Cproject-id%3E)
+-   **"The Impact of the General Data Protection Regulation (GDPR) on Online Tracking" Reproducible Analysis** on [Posit Cloud](https://posit.cloud/content/9521737)
 
-Once the project opens, restore the environment, locate the R script and run it (see the points 2.-4. above).
+Once the project opens, locate the R script and run it (see the points 3.-5. above).
+
+Note: Posit Cloud allows you to skip the steps 1.-2. above.
 
 ------------------------------------------------------------------------
 
 ## Instructions to Replicate Analysis on Local Machine Using RStudio Desktop
 
-1.  **Download** this repository to your local machine: `Code -> Download ZIP`
+1.  **Download** this repository to your local machine, e.g.: `Code -> Download ZIP`
 
 2.  Open the R project in **RStudio Desktop**.
 
-3.  Install the required packages if you have not already:
-
-    ```         
-    renv::restore()
-    ```
-
-4.  Locate and run the script `reproducible_analysis-2025-01-10-KL.R` to reproduce tables and figures as presented in the paper.
+3.  See the points 2.-5. above.
 
 ------------------------------------------------------------------------
 

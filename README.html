@@ -352,88 +352,141 @@ display: none;
 </div>
 
 
-<div id="doctoral-paper-the-impact-of-the-general-data-protection-regulation-gdpr-on-online-tracking" class="section level1">
-<h1>Doctoral Paper: The Impact of the General Data Protection Regulation
-(GDPR) on Online Tracking</h1>
-<p><strong>Authors:</strong> Klaus M. Miller, Karlo Lukic, Bernd
+<div id="the-impact-of-the-general-data-protection-regulation-gdpr-on-online-tracking" class="section level1">
+<h1>The Impact of the General Data Protection Regulation (GDPR) on
+Online Tracking</h1>
+<p><strong>Authors:</strong> Klaus M. Miller, Karlo Lukic, Bernd
 Skiera<br />
-<strong>Script Author:</strong> Karlo Lukic<br />
-<strong>Date:</strong> January 10, 2025</p>
+<strong>Date:</strong> January 10, 2025</p>
 <div id="description-of-repository" class="section level2">
 <h2>Description of Repository</h2>
-<p>This repository contains the reproducible R script used to generate
-all tables and figures presented in the paper:</p>
+<p>This repository contains the reproducible code to generate all tables
+and figures presented in the paper:</p>
 <p><strong>“The Impact of the General Data Protection Regulation (GDPR)
 on Online Tracking”</strong></p>
-<p>The paper analyzes the effect of the GDPR on online tracking using a
-Difference-in-Differences (DiD) approach and the Generalized Synthetic
-Control method. The code processes data from
-<strong>WhoTracks.me</strong> to reproduce the results.</p>
+<p>Note: The analysis was conducted using the R programming
+language.</p>
 <hr />
 </div>
-<div id="data-sources" class="section level2">
-<h2>Data Sources</h2>
+<div id="steps-to-reproduce-the-analysis" class="section level2">
+<h2>Steps to Reproduce the Analysis</h2>
+<ol style="list-style-type: decimal">
+<li><p><strong>Choose the environment:</strong> Decide whether you want
+to run the analysis using RStudio Desktop or Posit Cloud. Instructions
+for both environments are provided below.</p></li>
+<li><p><strong>Restore the environment:</strong> Begin by
+running <code>renv::restore()</code> to restore all packages and their
+versions to ensure a reproducible data analysis. When prompted, confirm
+by typing <code>Y</code>. Restoring packages can take a few minutes. If
+you have already completed this step, you can skip it.</p></li>
+<li><p><strong>Locate the R script:</strong> The key script for the
+analysis is located
+at <code>02_r_scripts/reproducible_analysis.R</code>. Open this
+self-contained script to run the data analysis.</p></li>
+<li><p><strong>Run the script:</strong> For instance, in RStudio, run
+the script line by line <code>Run Selected Line(s)</code> to replicate
+the exact data analysis process conducted for the paper.</p></li>
+</ol>
+<hr />
+</div>
+<div id="outcome" class="section level2">
+<h2>Outcome</h2>
+<p>Upon complete execution of the script, you will find the results
+saved in the <code>03_results</code> directory. This folder will include
+tables and figures presented in the paper.</p>
+<p>There is significant value in successfully replicating research and
+understanding the underlying processes that lead to the results. We
+appreciate your interest in this work and encourage you to reach out
+with any questions.</p>
+<hr />
+</div>
+<div id="data-sets" class="section level2">
+<h2>Data Sets</h2>
 <div id="public-data" class="section level3">
 <h3>Public Data:</h3>
-<p>The analysis relies on <strong>WhoTracks.me</strong> data, which is
-publicly available at:<br />
-<a href="https://github.com/whotracksme/whotracks.me">https://github.com/whotracksme/whotracks.me</a></p>
+<p>The analysis relies on <strong>WhoTracks.me</strong> data, which is
+publicly available at: <a href="https://github.com/whotracksme/whotracks.me" class="uri">https://github.com/whotracksme/whotracks.me</a></p>
 </div>
 <div id="proprietary-data" class="section level3">
 <h3>Proprietary Data:</h3>
-<p>Some datasets used in the paper (e.g., SimilarWeb) are proprietary
-and cannot be shared in this repository. Instead, we use a
-<strong>filtered version</strong> of the proprietary data that is
-necessary to produce the results reported in our paper. This ensures
-that the analysis is reproducible without compromising the
-confidentiality of the raw proprietary data.</p>
+<p>Some data sets used in the paper (e.g., SimilarWeb) are proprietary
+and cannot be shared in this repository. Instead, we use
+a <strong>filtered version</strong> of the proprietary data that is
+necessary to produce the results reported in our paper.</p>
 <hr />
 </div>
-</div>
-<div id="licensing" class="section level2">
-<h2>Licensing</h2>
-<p>This repository is licensed under the <strong>MIT License</strong>.
-You are free to use, modify, and distribute the code. If you use this
-script in your work, please cite the original paper:</p>
-<p><strong>Miller, K.M., Lukic, K., &amp; Skiera, B. (2025). The Impact
-of the General Data Protection Regulation (GDPR) on Online Tracking.
-IJRM.</strong></p>
-<hr />
 </div>
 <div id="how-to-instantly-replicate-analysis-using-posit-cloud" class="section level2">
 <h2>How to Instantly Replicate Analysis Using Posit Cloud</h2>
-<p>Use the prepared project on <strong>Posit Cloud</strong> to instantly
+<p>Use the prepared project on <strong>Posit Cloud</strong> to instantly
 replicate the analysis. Simply click on the link below to get
 started:</p>
 <ul>
-<li><strong>GDPR Paper Analysis</strong> on <a href="https://posit.cloud/project/%3Cproject-id%3E">Posit Cloud</a></li>
+<li><strong>GDPR Paper Analysis</strong> on <a href="https://posit.cloud/project/%3Cproject-id%3E">Posit Cloud</a></li>
 </ul>
-<p>Once the project opens, follow the instructions in the
-<code>README.md</code> file inside the Posit Cloud environment to
-reproduce the analysis.</p>
+<p>Once the project opens, restore the environment, locate the R script
+and run it (see the points 2.-4. above).</p>
 <hr />
 </div>
 <div id="instructions-to-replicate-analysis-on-local-machine-using-rstudio-desktop" class="section level2">
 <h2>Instructions to Replicate Analysis on Local Machine Using RStudio
 Desktop</h2>
 <ol style="list-style-type: decimal">
-<li><p>Clone this repository to your local machine:</p>
-<pre class="bash"><code>git clone https://github.com/&lt;your-github-username&gt;/&lt;repository-name&gt;.git</code></pre></li>
-<li><p>Open the R project in <strong>RStudio Desktop</strong>.</p></li>
-<li><p>Install the required packages if you haven’t already:</p>
-<pre class="r"><code>install.packages(c(&quot;dplyr&quot;, &quot;ggplot2&quot;, &quot;fixest&quot;, &quot;flextable&quot;, &quot;magick&quot;, &quot;here&quot;, &quot;readr&quot;, &quot;data.table&quot;, &quot;tidyr&quot;, &quot;scales&quot;))</code></pre></li>
-<li><p>Run the script <code>reproducible_analysis.R</code> to reproduce
-all tables and figures as presented in the paper.</p></li>
+<li><p><strong>Download</strong> this repository to your local machine:
+<code>Code -&gt; Download ZIP</code></p></li>
+<li><p>Open the R project in <strong>RStudio Desktop</strong>.</p></li>
+<li><p>Install the required packages if you have not already:</p>
+<pre><code>renv::restore()</code></pre></li>
+<li><p>Locate and run the script
+<code>reproducible_analysis-2025-01-10-KL.R</code> to reproduce tables
+and figures as presented in the paper.</p></li>
 </ol>
 <hr />
 </div>
+<div id="reproducibility-with-renv" class="section level2">
+<h2>Reproducibility with <code>renv</code></h2>
+<p>To ensure reproducibility, we use
+the <strong><code>renv</code></strong> package to snapshot the project
+environment and manage package versions. This package allows anyone to
+recreate the exact environment used for the analysis.</p>
+<div id="how-to-use-renv" class="section level3">
+<h3>How to Use <code>renv</code></h3>
+<ol style="list-style-type: decimal">
+<li><p>After cloning the repository, open the project in <strong>RStudio
+Desktop</strong>.</p></li>
+<li><p>Run the following command to restore the package environment:</p>
+<pre><code>renv::restore()</code></pre></li>
+<li><p>This command will install all necessary packages with their exact
+versions as used in the original analysis.</p></li>
+</ol>
+</div>
+<div id="creating-a-new-snapshot" class="section level3">
+<h3>Creating a New Snapshot</h3>
+<p>If you add or update packages, you can create a new snapshot of the
+environment by running:</p>
+<pre><code>renv::snapshot()</code></pre>
+<p>This command will update the <code>renv.lock</code> file with the
+current package versions.</p>
+<hr />
+</div>
+</div>
 <div id="acknowledgments" class="section level2">
 <h2>Acknowledgments</h2>
-<p>We thank the <strong>WhoTracks.me</strong> team for providing the
+<p>We thank the <strong>WhoTracks.me</strong> team for providing the
 data used in this research.<br />
 This project has received funding from the European Research Council
 (ERC) under the European Union’s Horizon 2020 research and innovation
 program (grant agreement No. 833714).</p>
+<hr />
+</div>
+<div id="licensing" class="section level2">
+<h2>Licensing</h2>
+<p>This repository is licensed under the <strong>MIT License</strong>.
+You are free to use, modify, and distribute the code. If you use this
+script in your work, please cite the original paper:</p>
+<p><strong>Miller, K.M., Lukic, K., &amp; Skiera, B. (2025). The Impact
+of the General Data Protection Regulation (GDPR) on Online Tracking.
+IJRM.</strong></p>
 </div>
 </div>
 
