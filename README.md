@@ -11,8 +11,6 @@ This repository contains the reproducible code to generate tables and figures pr
 
 Note: The analysis was conducted using the R programming language.
 
-------------------------------------------------------------------------
-
 ## Steps to Reproduce the Analysis
 
 1.  **Choose the environment:** Decide whether you want to run the analysis using RStudio Desktop or Posit Cloud. Instructions for both environments are provided below.
@@ -25,8 +23,6 @@ Note: The analysis was conducted using the R programming language.
 
 5.  **Locate the results**: The folder `03_results` will initially be empty, except for the Figures 1 and 2 which we created without the R programming language. Upon complete execution of the script, the folder will populate with the results.
 
-------------------------------------------------------------------------
-
 ## Data Sets
 
 ### Public Data:
@@ -37,19 +33,15 @@ The analysis relies on **WhoTracks.me** data, which is publicly available at: 
 
 Some data used in the paper (e.g., SimilarWeb) are proprietary and we cannot share it in this repository. Instead, we use a subset of the proprietary data to produce the results reported in our paper.
 
-------------------------------------------------------------------------
-
 ## How to Instantly Replicate Analysis Using Posit Cloud
 
-Use the prepared project on **Posit Cloud** to instantly replicate the analysis. Simply click on the link below —after the Sign Up / Log In — to get started:
+Use the prepared project on **Posit Cloud** to instantly replicate the analysis. Simply click on the link below—after the Sign Up / Log In—to get started:
 
 -   **"The Impact of the General Data Protection Regulation (GDPR) on Online Tracking" Reproducible Analysis** on [Posit Cloud](#0)
 
 Once the project opens, see the points 3.-5. above.
 
 Note: Posit Cloud allows you to skip the steps 1.-2. above.
-
-------------------------------------------------------------------------
 
 ## Instructions to Replicate Analysis on Local Machine Using RStudio Desktop
 
@@ -59,20 +51,14 @@ Note: Posit Cloud allows you to skip the steps 1.-2. above.
 
 3.  See the points 2.-5. above.
 
-------------------------------------------------------------------------
-
 ## Reproducibility with `renv`
 
 To ensure reproducibility, we use the **`renv`** package to snapshot the project environment and manage package versions. This package allows anyone to recreate the exact environment used for the analysis.
-
-------------------------------------------------------------------------
 
 ## Acknowledgments
 
 We thank the **WhoTracks.me** team for providing the data used in this research.\
 This project has received funding from the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation program (grant agreement No. 833714).
-
-------------------------------------------------------------------------
 
 ## Licensing
 

@@ -32,6 +32,8 @@
 
 # load packages and functions --------------------------------------------------
 
+# renv::restore() # comment in if you want to restore the environment
+
 library(here) # cross-platform file paths
 source(here("02_r_scripts", "packages_and_functions-2025-01-10-KL.R"))
 
@@ -137,7 +139,7 @@ sw_public_DT <- read_rds(file = here("01_data", "merged_similar_web_data.rds"))
 
 # proprietary SimilarWeb data set (used in web appendix)
 # NOTE: Given that this data set is proprietary, we cannot provide the data set in the repository.
-# Instead, we use the filtered version of the data set to reproduce the results.
+# Instead, we use the subset of the raw data set to reproduce the results.
 sw_proprietary_filtered_DT <- read_rds(file = here("01_data", "sw_proprietary_filtered.rds"))
 
 # data set for generalized synthetic control method (used in web appendix)
