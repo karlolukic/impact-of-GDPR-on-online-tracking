@@ -1,43 +1,48 @@
-# ------------------------------------------------------------------------------
+# INFORMATION --------------------------------------------------
 # Title: Packages and Functions for the Reproducible Analysis of "The Impact of the General Data Protection Regulation (GDPR) on Online Tracking"
 # Authors: Klaus M. Miller, Karlo Lukic, Bernd Skiera
-# Script Author: Karlo Lukic
-# Date: January 10, 2025
-# ------------------------------------------------------------------------------
+# R Script Author: Karlo Lukic
+# Date: March 07, 2025
 
-# all packages used for the project ----
-library(data.table) # data manipulation
-library(tidyverse) # data manipulation
-library(forcats) # nice ordering in ggplot
-library(ggtext) # italicized text in ggplot
-library(lubridate) # data manipulation
-library(scales) # data visualization
-library(readxl) # data ingestion
-library(flextable) # reporting tables
-library(ggpubr) # data visualization
-library(fixest) # OLS regression estimations
-library(gsynth) # SCM method
-library(pdftools) # display prepared PDFs
-library(magick) # display prepared PDFs
-library(GGally) # data visualization
-library(officedown) # to produce Word file
-library(sjmisc) # big_mark() function
-library(usethis) # ui messages
-library(huxtable) # reporting tables
-library(officer) # reporting tables
-library(patchwork) # multiple plots
-library(glue) # alternative to paste0
-library(cowplot) # data visualization
-library(infer) # statistical tests
-library(broom) # statistical tests
-library(rstatix) # statistical tests
-library(gridExtra) # multiple plots
+# Contact:
+# Karlo Lukic (lukic@wiwi.uni-frankfurt.de; karlo.lukic@protonmail.com)
 
+# Note:
+# Consider using the document outline pane in RStudio to navigate through the script.
+
+# R PACKAGES --------
+
+library(data.table)   # data manipulation
+library(tidyverse)    # data manipulation
+library(forcats)      # nice ordering in ggplot
+library(ggtext)       # italicized text in ggplot
+library(lubridate)    # data manipulation
+library(scales)       # data visualization
+library(readxl)       # data ingestion
+library(flextable)    # reporting tables
+library(ggpubr)       # data visualization
+library(fixest)       # OLS regression estimations
+library(gsynth)       # SCM method
+library(pdftools)     # display prepared PDFs
+library(magick)       # display prepared PDFs
+library(GGally)       # data visualization
+library(officedown)   # to produce Word file
+library(sjmisc)       # big_mark() function
+library(usethis)      # ui messages
+library(huxtable)     # reporting tables
+library(officer)      # reporting tables
+library(patchwork)    # multiple plots
+library(glue)         # alternative to paste0
+library(cowplot)      # data visualization
+library(infer)        # statistical tests
+library(broom)        # statistical tests
+library(rstatix)      # statistical tests
+library(gridExtra)    # multiple plots
 
 # set defaults
 theme_set(theme_gray(base_family = "Arial"))
 
-## ----flextable-settings-------------------------------------------------------------
+## flextable-settings -----------
 set_flextable_defaults(
   font.family = "Times", font.size = 10, font.color = "black", # default font size = 10
   text.align = "left", table.layout = "autofit",
@@ -49,7 +54,7 @@ set_flextable_defaults(
 )
 
 
-# ggplot shortcuts -----
+## ggplot shortcuts -----
 geom_vline_gdpr <- geom_vline(xintercept = as.numeric(ymd("2018-05-01")),
                               linetype = "dashed", color = "black", linewidth = .3)
 
@@ -70,13 +75,13 @@ scale_color_groups <- scale_color_manual(values = c("0" = "#56B4E9", # color-bli
                                          labels = c("Treatment", "Control"))
 
 
-# flextable shortcuts ----
+## flextable shortcuts ----
 std_border <- fp_border(color = "black", width = 1)
 dashed_border <- fp_border(color = "black", width = 1, style = "dashed")
 thick_border <- fp_border(color = "black", width = 2)
 no_border <- fp_border(color = "white", width = 1)
 
-# utility functions -----
+# UTILITY FUNCTIONS -----
 silent_ggsave <- function(filename) {
   suppressMessages(ggsave(filename))
 }
