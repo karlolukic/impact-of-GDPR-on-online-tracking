@@ -1,7 +1,7 @@
 # The Impact of the General Data Protection Regulation (GDPR) on Online Tracking
 
 **Authors:** Klaus M. Miller, Karlo Lukic, Bernd Skiera\
-**Date:** January 10, 2025
+**Date:** March 07, 2025
 
 ## Description of Repository
 
@@ -24,11 +24,10 @@ Keywords: Economics of Privacy; Online Privacy; Online Tracking; Privacy Law; Qu
 │   ├── lookup_tables           # Subdirectory for Excel lookup tables for reporting
 │   └── (other .rds data files used for the analysis)
 ├── 02_r_scripts                # Directory for R scripts
-│   ├── packages_and_functions-2025-01-10-KL.R  # R script with packages and functions
-│   └── reproducible_analysis-2025-01-10-KL.R  # Main R script to reproduce results
+│   ├── packages_and_functions-2025-03-07-KL.R  # R script with packages and functions
+│   └── reproducible_analysis-2025-03-07-KL.R  # Main R script to reproduce results
 ├── 03_results                  # Directory for output tables and figures
 │   ├── figure_01.pdf 
-│   ├── figure_02.pdf
 │   └── web_appendix            # Subdirectory for web appendix outputs
 │       └── (output for tables and figures in web appendix)
 └── renv                        # Directory for renv cache files
@@ -41,11 +40,11 @@ Keywords: Economics of Privacy; Online Privacy; Online Tracking; Privacy Law; Qu
 
 2.  **Restore the environment:** Begin by running `renv::restore()` to restore all packages and their versions to ensure a reproducible data analysis. When prompted, confirm by typing `Y`. Restoring packages can take a few minutes. If you have already completed this step, you can skip it.
 
-3.  **Locate the R script:** The key script for the analysis is located at `02_r_scripts/reproducible_analysis.R`. Open this self-contained script to run the data analysis.
+3.  **Locate the R script:** The key script for the analysis is located at `02_r_scripts/reproducible_analysis-2025-03-07-KL.R`. Open this self-contained script to run the data analysis.
 
 4.  **Run the script:** For instance, run the script in RStudio line by line using **Run Selected Line(s)** to replicate the exact data analysis process conducted in the paper.
 
-5.  **Locate the results:** The `03_results` folder will initially be empty, except for Figures 1 and 2, which we created without the R programming language. Upon complete execution of the script, the folder will populate with the results.
+5.  **Locate the results:** The `03_results` folder will initially be empty, except for Figure 1, which we created without the R programming language. Upon complete execution of the script, the folder will populate with the results.
 
 ## Data Sets
 
@@ -72,7 +71,7 @@ Once the project opens, follow steps 3-5 above.
 
 1.  **Download the repository** to your local machine, e.g., by selecting **Code** -\> **Download ZIP**.
 
-2.  **Extract the ZIP file** and open the R project file `impact-of-GDPR-on-online-tracking-2025-01-10.Rproj` using RStudio Desktop.
+2.  **Extract the ZIP file** and open the R project file `impact-of-GDPR-on-online-tracking-2025-03-07.Rproj` using RStudio Desktop.
 
 3.  Follow steps 2-5 above.
 
@@ -114,4 +113,4 @@ If you use this script in your work, please cite the original paper:
 
 **Miller, K.M., Lukic, K., & Skiera, B. (2025). The Impact of the General Data Protection Regulation (GDPR) on Online Tracking. International Journal of Research in Marketing (forthcoming).**
 
-<img src="erc-logo.png" alt="ERC Logo" width="460"><img src="logo-hi-paris-retina.png" alt="HI Paris Logo" width="300">
+<img src="erc-logo.png" alt="ERC Logo" width="460"/><img src="logo-hi-paris-retina.png" alt="HI Paris Logo" width="300"/>
