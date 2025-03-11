@@ -111,6 +111,6 @@ This project has received funding from the European Research Council (ERC) under
 
 If you use this script in your work, please cite the original paper:
 
-**K.M. Miller, K. Lukic, B. Skiera, The impact of the General Data Protection Regulation (GDPR) on online tracking, International Journal of Research in Marketing (2025), doi: https://doi.org/10.1016/j.ijresmar.2025.03.002.**
+**K.M. Miller, K. Lukic, B. Skiera, The impact of the General Data Protection Regulation (GDPR) on online tracking, International Journal of Research in Marketing (2025), doi: [10.1016/j.ijresmar.2025.03.002](https://doi.org/10.1016/j.ijresmar.2025.03.002).**
 
 <img src="erc-logo.png" alt="ERC Logo" width="460"/><img src="logo-hi-paris-retina.png" alt="HI Paris Logo" width="300"/>
