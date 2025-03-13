@@ -20,20 +20,20 @@ Keywords: Economics of Privacy; Online Privacy; Online Tracking; Privacy Law; Qu
 ## Repository Structure
 
 ```         
-├── 01_data                                         # Directory for data files
-│   ├── lookup_tables                               # Subdirectory for Excel lookup tables for reporting
+├── 01_data                                           # Directory for data files
+│   ├── lookup_tables                                 # Subdirectory for Excel lookup tables for reporting
 │   └── (other .rds data files used for the analysis)
-├── 02_r_scripts                                    # Directory for R scripts
-│   ├── packages_and_functions-2025-03-07-KL.R      # R script with packages and functions
-│   └── reproducible_analysis-2025-03-07-KL.R       # Main R script to reproduce results
-├── 03_results                                      # Directory for output tables and figures
+├── 02_r_scripts                                      # Directory for R scripts
+│   ├── packages_and_functions-2025-03-07-KL.R        # R script with packages and functions
+│   └── reproducible_analysis-2025-03-07-KL.R         # Main R script to reproduce results
+├── 03_results                                        # Directory for output tables and figures
 │   ├── figure_01.pdf 
-│   └── web_appendix                                # Subdirectory for web appendix outputs
-│       └── (output for tables and figures in web appendix)
-├── 04_cascad_certification                         # Directory for CASCAD certification
+│   └── web_appendix                                  # Subdirectory for web appendix outputs
+│       └── (web appendix outputs)
+├── 04_cascad_certification                           # Directory for CASCAD certification
 │   ├── execution_report_cascad402cp-2025-03-12.pdf
 │   ├── execution_report_cascad402cp-2025-03-12.pdf
-└── renv                                            # Directory for renv cache files
+└── renv                                              # Directory for renv cache files
     └── (renv cache files)
 ```
 
