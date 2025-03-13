@@ -1,7 +1,7 @@
 # The Impact of the General Data Protection Regulation (GDPR) on Online Tracking
 
 **Authors:** Klaus M. Miller, Karlo Lukic, Bernd Skiera\
-**Date:** March 07, 2025
+**Date:** March 13, 2025
 
 ## Description of Repository
 
