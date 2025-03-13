@@ -13,7 +13,7 @@ This repository contains the reproducible code to generate tables and figures fo
 
 This study explores the impact of the General Data Protection Regulation (GDPR) on online trackers—vital elements in the online advertising ecosystem. Using a difference-in-differences approach with a balanced panel of 294 publishers, it compares publishers subject to the GDPR with those unaffected (the control group). Drawing on data from WhoTracks.me, which spans 32 months from May 2017 to December 2019, it analyzes how the number of trackers used by publishers changed before and after the GDPR. The findings reveal that although online tracking increased for both groups, the rise was less significant for EU-based publishers subject to the GDPR. Specifically, the GDPR reduced about four trackers per publisher, equating to a 14.79% decrease compared to the control group. The GDPR was particularly effective in curbing privacy-invasive trackers that collect and share personal data, thereby strengthening user privacy. However, it had a limited impact on advertising trackers and only slightly reduced the presence of analytics trackers.
 
-Keywords: Economics of Privacy; Online Privacy; Online Tracking; Privacy Law; Quasi- Experiment; Difference-in-Differences; Synthetic Control
+Keywords: Economics of Privacy; Online Privacy; Online Tracking; Privacy Law; Quasi-Experiment; Difference-in-Differences; Synthetic Control
 
 *Note*: The analysis was conducted using the **R programming language.**
 
@@ -31,8 +31,12 @@ Keywords: Economics of Privacy; Online Privacy; Online Tracking; Privacy Law; Qu
 │   └── web_appendix                                  # Subdirectory for web appendix outputs
 │       └── (web appendix outputs)
 ├── 04_cascad_certification                           # Directory for CASCAD certification
+│   ├── reproducibility_certificate-2025-03-13.pdf
 │   ├── execution_report_cascad402cp-2025-03-12.pdf
-│   ├── execution_report_cascad402cp-2025-03-12.pdf
+├── images                                            # Directory for images
+│   ├── erc-logo.png
+│   ├── logo-hi-paris-retina.png
+│   └── cascad-certification.png
 └── renv                                              # Directory for renv cache files
     └── (renv cache files)
 ```
@@ -118,8 +122,8 @@ If you use this script in your work, please cite the original paper:
 
 ## Reproducibility Certification
 
-The computational reproducibility of the results in this paper has been verified by the [Certification Agency for Scientific Code and Data (CASCAD)](https://www.cascad.tech). The CASCAD reproducibility certificate and execution reports are available in the [`04_cascad_certification`](./04_cascad_certification/) directory or via this [link](https://www.cascad.tech/certification/159-the-impact-of-the-general-data-protection-regulation-gdpr-on-online-tracking/).
+The computational reproducibility of the results in this paper has been verified by the [Certification Agency for Scientific Code and Data (CASCAD)](https://www.cascad.tech). The CASCAD reproducibility certificate and execution report are available in the [`04_cascad_certification`](./04_cascad_certification/) directory or via this [link](https://www.cascad.tech/certification/159-the-impact-of-the-general-data-protection-regulation-gdpr-on-online-tracking/).
 
-<img src="erc-logo.png" alt="ERC Logo" width="460"/><img src="logo-hi-paris-retina.png" alt="HI Paris Logo" width="300"/>
+<img src="images/erc-logo.png" alt="ERC Logo" width="460"/><img src="images/logo-hi-paris-retina.png" alt="HI Paris Logo" width="300"/>
 
-<img src="cascad-certification.png" alt="CASCAD certification" width="760"/>
+<img src="images/cascad-certification.png" alt="CASCAD certification" width="760"/>
