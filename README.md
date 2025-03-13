@@ -121,3 +121,5 @@ If you use this script in your work, please cite the original paper:
 The computational reproducibility of the results in this paper has been verified by the [Certification Agency for Scientific Code and Data (CASCAD)](https://www.cascad.tech). The CASCAD reproducibility certificate and execution reports are available in the [`04_cascad_certification`](./04_cascad_certification/) directory or via this [link](https://www.cascad.tech/certification/159-the-impact-of-the-general-data-protection-regulation-gdpr-on-online-tracking/).
 
 <img src="erc-logo.png" alt="ERC Logo" width="460"/><img src="logo-hi-paris-retina.png" alt="HI Paris Logo" width="300"/>
+
+<img src="cascad-certification.png" alt="CASCAD certification" width="760"/>
