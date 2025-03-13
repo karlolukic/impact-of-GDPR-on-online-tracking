@@ -20,17 +20,20 @@ Keywords: Economics of Privacy; Online Privacy; Online Tracking; Privacy Law; Qu
 ## Repository Structure
 
 ```         
-├── 01_data                     # Directory for data files
-│   ├── lookup_tables           # Subdirectory for Excel lookup tables for reporting
+├── 01_data                                         # Directory for data files
+│   ├── lookup_tables                               # Subdirectory for Excel lookup tables for reporting
 │   └── (other .rds data files used for the analysis)
-├── 02_r_scripts                # Directory for R scripts
-│   ├── packages_and_functions-2025-03-07-KL.R  # R script with packages and functions
-│   └── reproducible_analysis-2025-03-07-KL.R  # Main R script to reproduce results
-├── 03_results                  # Directory for output tables and figures
+├── 02_r_scripts                                    # Directory for R scripts
+│   ├── packages_and_functions-2025-03-07-KL.R      # R script with packages and functions
+│   └── reproducible_analysis-2025-03-07-KL.R       # Main R script to reproduce results
+├── 03_results                                      # Directory for output tables and figures
 │   ├── figure_01.pdf 
-│   └── web_appendix            # Subdirectory for web appendix outputs
+│   └── web_appendix                                # Subdirectory for web appendix outputs
 │       └── (output for tables and figures in web appendix)
-└── renv                        # Directory for renv cache files
+├── 04_cascad_certification                         # Directory for CASCAD certification
+│   ├── execution_report_cascad402cp-2025-03-12.pdf
+│   ├── execution_report_cascad402cp-2025-03-12.pdf
+└── renv                                            # Directory for renv cache files
     └── (renv cache files)
 ```
 
@@ -112,5 +115,9 @@ This project has received funding from the European Research Council (ERC) under
 If you use this script in your work, please cite the original paper:
 
 **K.M. Miller, K. Lukic, B. Skiera, The impact of the General Data Protection Regulation (GDPR) on online tracking, International Journal of Research in Marketing (2025), doi: [10.1016/j.ijresmar.2025.03.002](https://doi.org/10.1016/j.ijresmar.2025.03.002).**
+
+## Reproducibility Certification
+
+The computational reproducibility of the results in this paper has been verified by the [Certification Agency for Scientific Code and Data (CASCAD)](https://www.cascad.tech). The CASCAD reproducibility certificate and execution reports are available in the [`04_cascad_certification`](./04_cascad_certification/) directory or via this [link](https://www.cascad.tech/certification/159-the-impact-of-the-general-data-protection-regulation-gdpr-on-online-tracking/).
 
 <img src="erc-logo.png" alt="ERC Logo" width="460"/><img src="logo-hi-paris-retina.png" alt="HI Paris Logo" width="300"/>
